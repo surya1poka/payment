@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.payment.service.PaymentService;
 import com.example.payment.strategy.CardPayment;
+import com.example.payment.strategy.CashOnDeliveryPayment;
 import com.example.payment.strategy.NetBankingPayment;
 import com.example.payment.strategy.PaymentMethod;
 import com.example.payment.strategy.UpiPayment;
@@ -25,6 +26,9 @@ public class PaymentController {
 
     @Autowired
     private CardPayment card;
+
+    @Autowired
+    private CashOnDeliveryPayment cod;
 
     @Autowired
     @Qualifier("netBanking")
@@ -50,6 +54,9 @@ public String pay(@RequestParam(required = false) String method,
         case "netbanking":
             selected = netBanking;
             break;
+        case "cod":
+            selected = cod;
+            break;    
         default:
             return "Invalid Payment Method ❌";
     }
