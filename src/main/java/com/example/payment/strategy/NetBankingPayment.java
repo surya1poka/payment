@@ -1,8 +1,10 @@
 package com.example.payment.strategy;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component("netBanking") 
+@Component("netBanking")  
+@Lazy
 public class NetBankingPayment implements PaymentMethod {
 
     public NetBankingPayment() {
