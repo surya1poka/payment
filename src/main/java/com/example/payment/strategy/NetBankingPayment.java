@@ -1,14 +1,12 @@
 package com.example.payment.strategy;
 
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component
-@Lazy
+@Component("netBanking") 
 public class NetBankingPayment implements PaymentMethod {
 
     public NetBankingPayment() {
-        System.out.println("NetBanking Bean Created ⚡");
+        System.out.println("NetBanking Bean Created ");
     }
 
     @Override
